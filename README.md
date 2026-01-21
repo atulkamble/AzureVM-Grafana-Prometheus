@@ -168,6 +168,7 @@ sudo apt-get install grafana -y
 ```bash
 sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
+sudo systemctl status grafana-server
 ```
 
 ✅ Access
