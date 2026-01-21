@@ -6,16 +6,6 @@ This is **trainer-friendly**, **lab-ready**, and suitable for **DevOps / Cloud m
 
 ---
 
-![Image](https://s3.amazonaws.com/a-us.storyblok.com/f/1022730/c982ad8d75/prometheus-grafana-architecture-diagram.png)
-
-![Image](https://www.opsramp.com/wp-content/uploads/2022/07/node-img-1-1024x487-1.jpeg)
-
-![Image](https://miro.medium.com/1%2A9_XeHLdBdRveDxVVBPf_kA.png)
-
-![Image](https://volkovlabs.io/img/blog/2023-09-26-timeseries-dashboard/timeseries-prometheus.png)
-
----
-
 ## 🧩 Architecture Overview
 
 **Flow**
