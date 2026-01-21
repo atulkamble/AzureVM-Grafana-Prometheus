@@ -91,7 +91,7 @@ sudo systemctl start node_exporter
 ✅ Verify
 
 ```
-[http://<VM_IP>:9100/metrics](http://20.62.198.127:9100/metrics)
+http://20.62.198.127:9100/metrics
 ```
 
 ---
