@@ -25,10 +25,11 @@ Azure VM
 
 ## 🛠️ Prerequisites (Azure)
 
-1. **Azure VM**
+1. **Azure VM | Grafana, Prometheus**
 
-   * OS: Ubuntu 20.04 / 22.04
+   * OS: Ubuntu 20.04 / 22.04 | OS Disk | 128GB
    * Size: Standard_B1ms or higher
+   * NSG - SSH - 22, Node-Exporter - 9100, Prometheus - 9090, Grafana - 3000
 
 2. **NSG – Open Ports**
 
@@ -42,7 +43,11 @@ Azure VM
 3. Login to VM:
 
 ```bash
-ssh azureuser@<VM_PUBLIC_IP>
+cd Downloads 
+chmod 400 key.pem 
+ssh -i key.pem atul@20.62.198.127
+yes
+sudo apt update -y 
 ```
 
 ---
