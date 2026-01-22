@@ -138,7 +138,7 @@ sudo snap install prometheus
 sudo nano /etc/prometheus/prometheus.yml
 ```
 
-```yaml
+```
 # Global configuration
 global:
   scrape_interval: 15s
@@ -163,13 +163,13 @@ scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets:
-      - "localhost:9090"
+          - "localhost:9090"
 
   # Node Exporter
   - job_name: "node_exporter"
     static_configs:
-      - targets: ["localhost:9100"]
-
+      - targets:
+          - "localhost:9100"
 ```
 
 ### Create Prometheus Service
