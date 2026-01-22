@@ -695,3 +695,118 @@ Here’s a **handy list of popular Grafana Dashboard IDs** you can directly impo
 ---
 
 
+
+Below is **HIGH CPU alert + auto-action script**
+
+---
+
+## 🚨 High CPU Alert (Prometheus – Node Exporter)
+
+### 📄 `high-cpu-alert.yml`
+
+```yaml
+groups:
+- name: cpu-alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: (100 - avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High CPU usage detected"
+      description: "CPU usage on {{ $labels.instance }} is above 80% for 5 minutes."
+```
+
+### 🔧 Enable in **Prometheus**
+
+```yaml
+rule_files:
+  - "high-cpu-alert.yml"
+```
+
+```bash
+sudo systemctl restart prometheus
+```
+
+---
+
+## 🧪 Verify CPU Metric
+
+```promql
+100 - avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100
+```
+
+---
+
+## 🛠️ High CPU Troubleshooting Script (Linux)
+
+### 📄 `high_cpu_check.sh`
+
+```bash
+#!/bin/bash
+
+echo "===== HIGH CPU DIAGNOSTIC REPORT ====="
+echo "Date: $(date)"
+echo
+
+echo "Top CPU Consuming Processes:"
+ps -eo pid,ppid,cmd,%cpu --sort=-%cpu | head -10
+echo
+
+echo "CPU Load Average:"
+uptime
+echo
+
+echo "CPU Core Usage:"
+mpstat -P ALL 1 1
+echo
+
+echo "Zombie Processes:"
+ps aux | awk '{ if ($8=="Z") print $0 }'
+echo
+
+echo "====================================="
+```
+
+### ▶️ Run
+
+```bash
+chmod +x high_cpu_check.sh
+./high_cpu_check.sh
+```
+
+---
+
+## ⚡ Auto-Kill High CPU Process (Optional – Use Carefully)
+
+```bash
+#!/bin/bash
+
+THRESHOLD=85
+
+PID=$(ps -eo pid,%cpu --sort=-%cpu | awk 'NR==2 {print $1}')
+CPU=$(ps -eo pid,%cpu --sort=-%cpu | awk 'NR==2 {print $2}')
+
+if (( ${CPU%.*} > THRESHOLD )); then
+  echo "Killing PID $PID using $CPU% CPU"
+  kill -9 $PID
+fi
+```
+
+---
+
+## 📌 Real-World Usage Flow
+
+1. **Node Exporter** → exposes CPU metrics
+2. **Prometheus** → fires `HighCPUUsage` alert
+3. **Alertmanager** → sends Slack/Email
+4. **Script** → identifies / mitigates root cause
+
+---
+
+## 🧠 Interview One-Liner
+
+> *High CPU alerts are triggered using PromQL over node_cpu_seconds_total idle time, combined with diagnostic scripts to identify rogue processes.*
+
+---
