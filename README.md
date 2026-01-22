@@ -607,3 +607,91 @@ http://localhost:3100
 * Full **Observability Stack**
 
 ---
+
+Here’s a **handy list of popular Grafana Dashboard IDs** you can directly import into **Grafana** using **Dashboard → Import → ID**.
+
+---
+
+## 🔥 Most-Used Grafana Dashboard IDs
+
+### 🖥️ **Node / Linux Monitoring**
+
+| Dashboard                | ID        | Use Case                                                |
+| ------------------------ | --------- | ------------------------------------------------------- |
+| Node Exporter Full       | **1860**  | Complete Linux server metrics (CPU, RAM, Disk, Network) |
+| Node Exporter Quickstart | **11074** | Lightweight node overview                               |
+| Linux Host Metrics       | **10180** | Simple Linux monitoring                                 |
+
+---
+
+### 📊 **Prometheus Monitoring**
+
+| Dashboard            | ID        | Use Case                   |
+| -------------------- | --------- | -------------------------- |
+| Prometheus 2.0 Stats | **3662**  | Prometheus server health   |
+| Prometheus Overview  | **6417**  | General Prometheus metrics |
+| Prometheus TSDB      | **12239** | Storage & TSDB internals   |
+
+---
+
+### ☸️ **Kubernetes / AKS / EKS**
+
+| Dashboard                     | ID        | Use Case              |
+| ----------------------------- | --------- | --------------------- |
+| Kubernetes Cluster Monitoring | **315**   | Cluster-wide view     |
+| Kubernetes Nodes              | **1860**  | Node-level metrics    |
+| Kubernetes Pod Metrics        | **747**   | Pod-level monitoring  |
+| Kubernetes API Server         | **12006** | Control plane metrics |
+
+---
+
+### 🐳 **Docker & Containers**
+
+| Dashboard         | ID        | Use Case                   |
+| ----------------- | --------- | -------------------------- |
+| Docker Monitoring | **893**   | Docker engine & containers |
+| cAdvisor          | **14282** | Container resource usage   |
+
+---
+
+### ☁️ **Cloud / Azure / AWS**
+
+| Dashboard          | ID        | Use Case                   |
+| ------------------ | --------- | -------------------------- |
+| Azure VM Metrics   | **10956** | Azure VM monitoring        |
+| AWS EC2 Monitoring | **617**   | EC2 instance metrics       |
+| AWS CloudWatch     | **15106** | CloudWatch-integrated view |
+
+---
+
+### 🗄️ **Databases**
+
+| Dashboard           | ID       | Use Case           |
+| ------------------- | -------- | ------------------ |
+| MySQL Overview      | **7362** | MySQL performance  |
+| PostgreSQL Database | **9628** | PostgreSQL metrics |
+| Redis Dashboard     | **763**  | Redis monitoring   |
+
+---
+
+### 🚀 **Application / Web**
+
+| Dashboard        | ID        | Use Case          |
+| ---------------- | --------- | ----------------- |
+| NGINX            | **12708** | NGINX metrics     |
+| Apache           | **3894**  | Apache web server |
+| JVM (Micrometer) | **4701**  | Java applications |
+
+---
+
+## 📥 How to Import (Quick Steps)
+
+1. Open **Grafana UI**
+2. ➜ **Dashboards → Import**
+3. Paste **Dashboard ID**
+4. Select **Prometheus** data source
+5. Click **Import**
+
+---
+
+
